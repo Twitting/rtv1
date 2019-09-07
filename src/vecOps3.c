@@ -1,53 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vecOps1.c                                          :+:      :+:    :+:   */
+/*   vecOps3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: twitting <twitting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 16:50:26 by twitting          #+#    #+#             */
-/*   Updated: 2019/09/07 20:01:01 by twitting         ###   ########.fr       */
+/*   Updated: 2019/09/07 20:23:30 by twitting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-t_vec v_plus(const t_vec v1, const t_vec v2)
+t_vec v_new(double x, double y, double z)
 {
 	t_vec result;
 
-	result.x = v1.x + v2.x;
-	result.y = v1.y + v2.y;
-	result.z = v1.z + v2.z;
+	result.x = x;
+	result.y = y;
+	result.z = z;
 	return result;
 }
 
-t_vec v_minus(const t_vec v1, const t_vec v2)
+t_ray r_new(const t_vec a, const t_vec b)
+{
+	t_ray result;
+
+	result.origin = a;
+	result.direction = b;
+	return result;
+}
+
+t_vec point_at_param(double t, const t_vec a, const t_vec b)
 {
 	t_vec result;
+	t_vec tmp;
 
-	result.x = v1.x - v2.x;
-	result.y = v1.y - v2.y;
-	result.z = v1.z - v2.z;
+	tmp = v_mult_num(b, t);
+	result = v_plus(a, tmp);
 	return result;
 }
 
-t_vec v_mult(const t_vec v1, const t_vec v2)
-{
-	t_vec result;
-
-	result.x = v1.x * v2.x;
-	result.y = v1.y * v2.y;
-	result.z = v1.z * v2.z;
-	return result;
-}
-
-t_vec v_div(const t_vec v1, const t_vec v2)
-{
-	t_vec result;
-
-	result.x = v1.x / v2.x;
-	result.y = v1.y / v2.y;
-	result.z = v1.z / v2.z;
-	return result;
-}
