@@ -6,17 +6,20 @@
 #    By: twitting <twitting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 14:23:06 by twitting          #+#    #+#              #
-#    Updated: 2019/09/07 16:12:45 by twitting         ###   ########.fr        #
+#    Updated: 2019/09/07 19:00:09 by twitting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rtv1
-SRC = ./src/main.c
-
+SRC = ./src/main.c \
+		./src/vecOps1.c \
+		./src/vecOps2.c \
+		./src/keyboard.c
 LIBFT = ./libft/libft.a
 OBJECTS = $(SRC:.c=.o)
-WWW = -Wall -Wextra -Werror -Ofast
-INCLUDES = -I libft -I includes/
+WWW = 
+# -Wall -Wextra -Werror -Ofast
+INCLUDES = -I libft -I includes/ -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
